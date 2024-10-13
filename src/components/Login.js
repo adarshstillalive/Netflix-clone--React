@@ -3,6 +3,7 @@ import { validateForm } from "../utils/validate";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
+import { BG_IMG_URL, LOGO_URL } from "../utils/constant";
 
 const Login = () => {
   const [haveAccount, setHaveAccount] = useState(true);
@@ -28,8 +29,7 @@ const Login = () => {
       signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           // Signed in 
-          const user = userCredential.user;
-          console.log(user);
+          // const user = userCredential.user;
           navigate('/browse')
         })
         .catch((error) => {
@@ -69,14 +69,14 @@ const Login = () => {
         <div className="absolute inset-0 bg-black/60"></div>
         <img
           className="h-full w-full object-cover"
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/f272782d-cf96-4988-a675-6db2afd165e0/web/IN-en-20241008-TRIFECTA-perspective_b28b640f-cee0-426b-ac3a-7c000d3b41b7_large.jpg"
+          src={BG_IMG_URL}
           alt="wallpaper"
         />
       </div>
 
       <div className="absolute top-0 left-0 w-full z-10 px-8 py-4">
         <div className="" style={{ paddingLeft: '10%' }}>
-          <img className="absolute w-48" src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"
+          <img className="absolute w-48" src={LOGO_URL}
             alt="logo" />
         </div>
       </div>

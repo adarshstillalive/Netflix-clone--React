@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { signOut } from 'firebase/auth';
 import { auth } from '../utils/firebase';
 import { useNavigate } from 'react-router-dom';
+import { LOGO_URL } from '../utils/constant';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -33,13 +34,13 @@ const Header = () => {
     <header className={`fixed top-0 z-50 w-full transition-colors duration-300 ${isScrolled ? 'bg-black' : 'bg-transparent'}`}>
       <div className="flex items-center px-4 py-4 md:px-8 md:py-6">
         <img
-          src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"
+          src={LOGO_URL}
           alt="Netflix"
           className="h-5 md:h-10"
         />
         <nav className="hidden md:flex ml-8 space-x-4">
           {['Home', 'TV Shows', 'Movies', 'New & Popular', 'My List'].map((item) => (
-            <h4 key={item} className="text-sm text-white hover:text-gray-300 transition duration-200">
+            <h4 key={item} className="text-sm cursor-pointer text-white hover:text-gray-300 transition duration-200">
               {item}
             </h4>
           ))}
