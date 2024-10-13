@@ -15,6 +15,7 @@ const useNowPlaying = () => {
         TMDB_OPTIONS
       );
       const json = await data.json();
+      
       const firstMovie = json.results[0];
 
       setMovie({
